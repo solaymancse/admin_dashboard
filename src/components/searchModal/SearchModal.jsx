@@ -1,5 +1,5 @@
 import { Modal } from 'antd';
-import { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import { IoIosSearch } from 'react-icons/io';
 
 const SearchModal = ({ isModalOpen, setIsModalOpen }) => {
@@ -24,8 +24,8 @@ const SearchModal = ({ isModalOpen, setIsModalOpen }) => {
 };
 
 SearchModal.propTypes = {
-    isModalOpen: func,
-    setIsModalOpen: func,
+    isModalOpen: PropTypes.bool.isRequired,
+    setIsModalOpen: PropTypes.bool.isRequired,
 }
 
 export default SearchModal;

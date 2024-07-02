@@ -8,7 +8,6 @@ const Language = () => (
   <Space wrap>
     <Select
       defaultValue="US"
-   
       onChange={handleChange}
       optionLabelProp="label"
     >
@@ -42,13 +41,14 @@ const Language = () => (
           flag: "https://cdn.kcak11.com/CountryFlags/countries/in.svg",
         },
       ].map((country) => (
-        <Option key={country.isoCode} value={country.isoCode} label={<img src={country.flag} alt={country.name} style={{ width: 20 }} />}>
-          <span>
+        <Option  key={country.isoCode} value={country.isoCode} label={<img src={country.flag} alt={country.name} style={{backgroundColor: 'red', width: 20}} />}>
+          <span className='flex items-center'>
             <img
               src={country.flag}
               alt={country.name}
-              style={{ width: 20 }}
+              style={{ width: 20,marginTop: 5 }}
             />
+           
           </span>
         </Option>
       ))}

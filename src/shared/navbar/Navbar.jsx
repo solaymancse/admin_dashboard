@@ -44,10 +44,10 @@ const Navbar = () => {
 
       <SearchModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
         <Language/>
-        <IoMail color="#A3AED0" />
-        <BsBellFill color="#A3AED0" />
+        <IoMail color="#777" />
+        <BsBellFill color="#777" />
         <div className="flex items-center gap-3">
           <p className="text-xs font-semibold hidden md:flex">Dilshad Jahin</p>
           <div className="w-[40px] h-[40px] rounded-full overflow-hidden">
