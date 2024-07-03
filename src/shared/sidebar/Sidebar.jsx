@@ -10,7 +10,14 @@ const Sidebar = () => {
     <div className="mt-4">
       {/* sidebar content */}
       {SidebarData.map((item, index) => {
-        return <div key={index}>{item.title}</div>;
+        return <div key={index} className="flex justify-start text-start items-center ">
+          
+          <div className="bg-white shadow-sm w-[50px] h-[50px] rounded-full flex items-center justify-center">
+            {item?.icon}
+          </div>
+          <div  className="flex justify-start text-start"> {item.title}</div>
+        </div>
+          ;
       })}
     </div>
   </div>;

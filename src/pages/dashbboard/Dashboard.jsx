@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   return (
     <div className="w-full h-screen flex">
-      <div className="w-[14%] bg-white hidden md:flex  h-screen  pb-4 px-4">
+      <div className="w-[14%] bg-white hidden md:flex  h-full  pb-4 px-4">
         {isLarge ? " " : <Sidebar />}
       </div>
       <div

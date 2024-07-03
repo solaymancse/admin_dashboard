@@ -4,6 +4,7 @@ import BreakupChart from "../chart/BreakupChart"
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { FaDollarSign } from "react-icons/fa";
 import Areacharts from "../chart/Areacharts";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
 
 const Revenue = () => {
     return (
@@ -16,23 +17,27 @@ const Revenue = () => {
                     </div>
                     <div>
                         <Select
-                            defaultValue="lucy"
+                            defaultValue="July 2024"
                             style={{
                                 width: 120,
+                                border: '1px solid gray',
+                                backgroundColor: '#f0f0f0',
+                                borderRadius: '4px',
                             }}
                             options={[
                                 {
-                                    value: 'jack',
-                                    label: 'Jack',
+                                    value: 'May 2024',
+                                    label: 'May 2024',
                                 },
                                 {
-                                    value: 'lucy',
-                                    label: 'Lucy',
+                                    value: 'June 2024',
+                                    label: 'June 2024',
                                 },
                                 {
-                                    value: 'Yiminghe',
-                                    label: 'yiminghe',
+                                    value: 'July 2024',
+                                    label: 'July 2024',
                                 },
+                               
 
                             ]}
                         />
@@ -43,8 +48,37 @@ const Revenue = () => {
                     <div className="w-[500px] h-[300px] mt-8">
                         <Chart />
                     </div>
-                    <div className="bg-white shadow-sm">
-                        <p>HEllo</p>
+                    <div className="bg-white shadow-sm h-full w-full">
+                        <div className="flex items-center gap-4">
+                            <div className="text-2xl bg-[#ECF2FF] h-10 w-10 ">
+                            <MdOutlineDashboardCustomize className="text-[#365bb2] flex items-center"/>
+                            </div>
+                            <div>
+                            <p className="text-2xl font-bold mb-2">$36,358</p>
+                            <p className="text-base font-normal mb-2">Total Earnings</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <div className="text-2xl bg-[#ECF2FF] h-10 w-10 ">
+                            <MdOutlineDashboardCustomize className="text-[#365bb2] flex items-center"/>
+                            </div>
+                            <div>
+                           
+                            <p className="text-base font-normal mb-2">Earnings this month</p>
+                            <p className="text-xl font-semibold mb-2">$26,30</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <div className="text-xl bg-[#ECF2FF] h-10 w-10 ">
+                            <MdOutlineDashboardCustomize className="text-[#365bb2] flex items-center"/>
+                            </div>
+                            <div>
+                            
+                            <p className="text-base font-normal mb-2">Expense this month</p>
+                            <p className="text-2xl font-semibold mb-2">$2,358</p>
+                            </div>
+                        </div>
+                        <div></div>
                     </div>
                 </div>
             </div>
