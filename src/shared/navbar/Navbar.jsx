@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center ">
+    <div className="flex justify-between items-center w-full">
       <div className="flex items-center gap-6">
         <div onClick={showDrawer}>
           <FiMenu />
@@ -45,7 +45,7 @@ const Navbar = () => {
       <SearchModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
 
       <div className="flex items-center gap-6">
-        <Language/>
+        <Language />
         <IoMail color="#777" />
         <BsBellFill color="#777" />
         <div className="flex items-center gap-3">
@@ -54,7 +54,7 @@ const Navbar = () => {
             <img
               className="w-full h-full"
               src="https://i.pravatar.cc/300"
-              alt=""
+              alt="Profile"
             />
           </div>
         </div>

@@ -6,6 +6,7 @@ const Home = () => {
     <div className="w-full">
         <HomeBox/>
         <Revenue/>
+      
     </div>
   )
 }

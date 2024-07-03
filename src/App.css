@@ -3,6 +3,7 @@
 * {
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
+    scroll-behavior: smooth;
 
 }
 
@@ -20,4 +21,9 @@ body {
 
 .ant-select-arrow {
     display: none !important;
+}
+
+.active{
+    background-color: #687EFF;
+    color: #F3F6FD;
 }

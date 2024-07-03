@@ -44,8 +44,8 @@ const Revenue = () => {
                     </div>
                 </div>
 
-                <div className="flex">
-                    <div className="w-[500px] h-[300px] mt-8">
+                <div className="grid lg:grid-cols-3">
+                    <div className="w-full col-span-2 h-[300px] mt-8">
                         <Chart />
                     </div>
                     <div className="bg-white shadow-sm h-full w-full">
@@ -78,13 +78,15 @@ const Revenue = () => {
                             <p className="text-2xl font-semibold mb-2">$2,358</p>
                             </div>
                         </div>
-                        <div></div>
+                        <button>
+                            View Full Report
+                        </button>
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col gap-4">
-                <div className="bg-white rounded-md shadow-sm grid p-8 grid-cols-2">
-                    <div className="">
+            <div className="flex flex-col md:flex-row lg:flex-col gap-4">
+                <div className="bg-white  rounded-md shadow-sm grid p-8 lg:grid-cols-2">
+                    <div className="w-full">
                         <p className="text-xl font-semibold mb-4">Yearly Breakup</p>
                         <div>
                             <p className="text-2xl font-bold mb-2">$36,358</p>
@@ -106,7 +108,7 @@ const Revenue = () => {
 
                         </div>
                     </div>
-                    <div className="w-[200px] h-[200px]">
+                    <div className="w-full h-[200px]">
                         <BreakupChart />
                     </div>
                 </div>

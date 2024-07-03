@@ -65,8 +65,14 @@ export const SidebarData = [
         cName: "nav-text",
     },
     {
+        title: "Chat",
+        path: "/dashboard/chat",
+        icon: <HiOutlineCurrencyDollar />,
+        cName: "nav-text",
+    },
+    {
         title: "Pricing",
-        path: "/pricing",
+        path: "/dashboard/pricing",
         icon: <HiOutlineCurrencyDollar />,
         cName: "nav-text",
     },

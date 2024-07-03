@@ -44,7 +44,7 @@ const HomeBox = () => {
         },
     ]
     return (
-        <div className={`grid md:grid-cols-3 xl:grid-cols-6 items-center w-full gap-4 h-[100px]  rounded-lg `}>
+        <div className={`grid md:grid-cols-3 xl:grid-cols-6 items-center w-full gap-4   rounded-lg `}>
             {data.map((item, index) => (
                 <div className={`grid grid-cols-3 shadow-sm items-center w-full gap-14 h-[100px] ${item?.bg} rounded-lg p-4`} key={index}>
 
