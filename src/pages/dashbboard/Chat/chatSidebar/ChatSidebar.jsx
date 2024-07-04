@@ -1,5 +1,6 @@
 import { CiSearch } from "react-icons/ci"
-import ChatList from "../../../../components/ChatList/ChatList"
+import ChatList from "../ChatList/ChatList"
+
 
 const ChatSidebar = () => {
 
@@ -9,7 +10,8 @@ const ChatSidebar = () => {
                 <CiSearch size={30} color="#777" />
                 <input type="text" placeholder="Search" className="w-full bg-[#F3F6FD] outline-none " />
             </div>
-            <ChatList />
+            <ChatList/>
+           
         </div>
     )
 }

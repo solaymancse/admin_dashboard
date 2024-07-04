@@ -4,11 +4,17 @@ import Login from "../pages/login/Login";
 import Home from "../pages/dashbboard/home/Home";
 import Chat from "../pages/dashbboard/Chat/Chat";
 import Pricing from "../pages/dashbboard/pricing/Pricing";
+import SignUp from "../pages/signup/signup";
 
 export const route = createBrowserRouter([
     {
         path: "/",
         element: <Login />
+    },
+    {
+        path: "/register",
+        element: <SignUp/>
+
     },
     {
         path: "/dashboard",

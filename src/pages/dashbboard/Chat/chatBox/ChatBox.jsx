@@ -1,7 +1,10 @@
 const ChatBox = () => {
   return (
     <div>
-      chatbox
+
+      
+    
+      
     </div>
   )
 }

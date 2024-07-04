@@ -37,7 +37,7 @@ const Revenue = () => {
                                     value: 'July 2024',
                                     label: 'July 2024',
                                 },
-                               
+
 
                             ]}
                         />
@@ -48,37 +48,36 @@ const Revenue = () => {
                     <div className="w-full col-span-2 h-[300px] mt-8">
                         <Chart />
                     </div>
-                    <div className="bg-white shadow-sm h-full w-full">
+
+                    {/* revenue report card started */}
+
+                    
+                    <div className="bg-white shadow-sm h-full w-full my-2">
                         <div className="flex items-center gap-4">
-                            <div className="text-2xl bg-[#ECF2FF] h-10 w-10 ">
-                            <MdOutlineDashboardCustomize className="text-[#365bb2] flex items-center"/>
+                            <div className="text-xl bg-[#ECF2FF] h-12 w-12 flex items-center ">
+                                <MdOutlineDashboardCustomize className="text-[#365bb2] mx-2 text-3xl" />
                             </div>
-                            <div>
-                            <p className="text-2xl font-bold mb-2">$36,358</p>
-                            <p className="text-base font-normal mb-2">Total Earnings</p>
+                            <div className="">
+                                <p className="text-xl font-bold mb-2">$36,358</p>
+                                <p className="text-base font-normal mb-2">Total Earnings</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4">
-                            <div className="text-2xl bg-[#ECF2FF] h-10 w-10 ">
-                            <MdOutlineDashboardCustomize className="text-[#365bb2] flex items-center"/>
-                            </div>
+                        <div className="flex items-center gap-8 my-3">
+                            <div className="w-[10px] h-[10px] rounded-full bg-[#4570EA] "></div>
                             <div>
-                           
-                            <p className="text-base font-normal mb-2">Earnings this month</p>
-                            <p className="text-xl font-semibold mb-2">$26,30</p>
+
+                                <p className="text-base font-normal mb-2">Earnings this month</p>
+                                <p className="text-xl font-semibold mb-2">$26,30</p>
                             </div>
                         </div>
-                        <div className="flex items-center gap-4">
-                            <div className="text-xl bg-[#ECF2FF] h-10 w-10 ">
-                            <MdOutlineDashboardCustomize className="text-[#365bb2] flex items-center"/>
-                            </div>
+                        <div className="flex  gap-8 my-3">
+                            <div className="w-[10px] h-[10px] rounded-full bg-[#4570EA]"></div>
                             <div>
-                            
-                            <p className="text-base font-normal mb-2">Expense this month</p>
-                            <p className="text-2xl font-semibold mb-2">$2,358</p>
+                                <p className="text-base font-normal mb-2">Expense this month</p>
+                                <p className="text-xl font-semibold mb-2">$2,358</p>
                             </div>
                         </div>
-                        <button>
+                        <button className="bg-[#4570EA] w-full text-white p-2 rounded-lg flex justify-center text-base">
                             View Full Report
                         </button>
                     </div>
@@ -116,14 +115,14 @@ const Revenue = () => {
                     <div className="flex justify-between items-center">
                         <p className="text-lg font-semibold">Monthly Earnings</p>
                         <div className="w-[40px] h-[40px] flex justify-center items-center rounded-full bg-[#49BEFF]">
-                            <FaDollarSign color="#fff"/>
+                            <FaDollarSign color="#fff" />
                         </div>
                     </div>
                     <div className="mt-4">
                         <p className="text-2xl font-bold">$6,820</p>
                     </div>
                     <div>
-                        <Areacharts/>
+                        <Areacharts />
                     </div>
                 </div>
             </div>
