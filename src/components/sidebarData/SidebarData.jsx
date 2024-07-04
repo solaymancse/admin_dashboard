@@ -83,6 +83,16 @@ export const SidebarData = [
         cName: "nav-text",
     },
     {
+        title: "Form",
+        path: "/dashboard/form",
+        icon: <IoBarChartSharp />,
+    },
+    {
+        title: "table",
+        path: "/dashboard/table",
+        icon: <IoBarChartSharp />,
+    },
+    {
         title: "Notifications",
         path: "/notifications",
         icon: <IoMdNotifications />,
