@@ -18,7 +18,7 @@ const Sidebar = () => {
       {/* sidebar content */}
       {SidebarData.map((item, index) => (
 
-        <Link to={item?.path} key={index} className={`flex justify-start text-start items-center px-2  rounded-lg ${locationHandler(item?.path)}`}>
+        <Link to={item?.path} key={index} className={`flex justify-start text-start items-center px-2 rounded-lg ${locationHandler(item?.path)} hover:bg-blue-100`}>
           <div className="w-[50px] h-[45px] rounded-full flex items-center justify-center">
             {item?.icon}
           </div>
