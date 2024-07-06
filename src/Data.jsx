@@ -1,7 +1,9 @@
 import { BsClipboard2CheckFill } from "react-icons/bs";
-import { FaDollarSign, FaUserAlt } from "react-icons/fa";
+import { FaDollarSign, FaRegFolderOpen, FaUserAlt } from "react-icons/fa";
+import { FaRegFolderClosed } from "react-icons/fa6";
 import { GoProjectSymlink } from "react-icons/go";
-import { SiEventstore } from "react-icons/si";
+import { RiPassPendingFill } from "react-icons/ri";
+import { SiEventstore, SiVirustotal } from "react-icons/si";
 import { TbReport } from "react-icons/tb";
 
 export const countries = [
@@ -77,27 +79,27 @@ export const countries = [
 ]
   export const ticketBoxdata = [
     {
-        title: "Employee",
-        number: "78",
-        icon: <FaUserAlt className="text-orange-300" />,
+        title: "Total Tickets",
+        number: "8",
+        icon: <SiVirustotal className="text-orange-300" />,
         bg: "bg-[#ECF2FF]"
     },
     {
-        title: "Clients",
-        number: "34",
-        icon: <BsClipboard2CheckFill color="#B0EBB4"/>,
+        title: "Pending Tickets",
+        number: "4",
+        icon: <RiPassPendingFill color="#B0EBB4"/>,
         bg: "bg-[#FEF5E5]"
     },
     {
-        title: "Projects",
-        number: "3445",
-        icon: <GoProjectSymlink className="text-[#5D87FF]" />,
+        title: "Open Tickets",
+        number: "5",
+        icon: <FaRegFolderOpen className="text-[#5D87FF]" />,
         bg: "bg-[#E8F7FF]"
     },
     {
-        title: "Events",
-        number: "78",
-        icon: <SiEventstore className="text-orange-300 " />,
+        title: "Closed Tickets",
+        number: "7",
+        icon: <FaRegFolderClosed className="text-orange-300 " />,
         bg: "bg-[#FDEDE8]"
     },
     
