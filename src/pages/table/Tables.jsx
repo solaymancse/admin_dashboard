@@ -1,5 +1,7 @@
 import { Space, Table, Tag } from 'antd';
 import TableHeader from './tableHeader/TableHeader';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { FaRegEdit } from 'react-icons/fa';
 const columns = [
     {
         title: 'Name',
@@ -42,8 +44,8 @@ const columns = [
         key: 'action',
         render: (_, record) => (
             <Space size="middle">
-                <a>Invite {record.name}</a>
-                <a>Delete</a>
+                <a><FaRegEdit className='text-green-800' /></a>
+                <a><RiDeleteBin6Line className='text-red-500' /></a>
             </Space>
         ),
     },

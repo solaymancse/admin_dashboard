@@ -6,6 +6,7 @@ import Chat from "../pages/dashbboard/Chat/Chat";
 import Pricing from "../pages/dashbboard/pricing/Pricing";
 import SignUp from "../pages/signup/signup";
 import Tables from "../pages/table/Tables";
+import Tickets from "../pages/dashbboard/Tickets/Tickets";
 
 export const route = createBrowserRouter([
     {
@@ -24,6 +25,11 @@ export const route = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Home />
+            },
+            {
+                path:"/dashboard/tickets",
+                element: <Tickets/>
+
             },
             {
                 path: "/dashboard/chat",
