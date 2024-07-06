@@ -13,6 +13,7 @@ const Login = () => {
     navigate('/dashboard')
   }
   return (
+    
     <div className="w-full h-screen py-10 px-2 md:px-0">
       <div className="mx-auto w-full md:w-[500px] px-10 h-[550px] pt-20 pb-4 bg-white shadow-sm rounded-md ">
         <form onSubmit={handleLogIn} className="rounded-none h-full">

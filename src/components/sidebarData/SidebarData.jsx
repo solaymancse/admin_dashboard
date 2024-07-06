@@ -6,7 +6,7 @@ import { IoBarChartSharp } from "react-icons/io5";
 import { LuShoppingCart } from "react-icons/lu";
 import { MdOutlineLogout, MdWidgets } from "react-icons/md";
 import { RiDashboardHorizontalFill } from "react-icons/ri";
-import { TiContacts } from "react-icons/ti";
+import { TiContacts, TiTicket } from "react-icons/ti";
 
 export const SidebarData = [
     {
@@ -19,6 +19,12 @@ export const SidebarData = [
         title: "Profile",
         path: "/profile",
         icon: <CgProfile />,
+        cName: "nav-text",
+    },
+    {
+        title: "Tickets",
+        path: "/dashboard/tickets",
+        icon: <TiTicket/>,
         cName: "nav-text",
     },
     {
