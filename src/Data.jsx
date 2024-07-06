@@ -104,3 +104,48 @@ export const countries = [
     },
     
 ]
+
+export const ticketData = [
+  {
+    key: '1',
+    id: '1',
+    ticket: {
+      subject: "Sed ut perspiciatis unde omnis iste",
+      description: "ab illo inventore veritatis et quasi arc",
+    },
+    address: 'New York No. 1 Lake Park',
+    status: "Close",
+    assignTo: {
+      name: 'Dilshad Jahin',
+      image: "https://res.cloudinary.com/dba7qvc2l/image/upload/v1720157722/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash_uftkdg.jpg",
+    }
+  },
+  {
+    key: '2',
+    id: '2',
+    ticket: {
+      subject: "Sed ut perspiciatis unde omnis iste",
+      description: "ab illo inventore veritatis et quasi arc",
+    },
+    address: 'London No. 1 Lake Park',
+    status: 'Pending',
+    assignTo: {
+      name: 'Daisy Jahin',
+      image: "https://res.cloudinary.com/dba7qvc2l/image/upload/v1720157721/linkedin-sales-solutions-pAtA8xe_iVM-unsplash_e4svmu.jpg",
+    }
+  },
+  {
+    key: '3',
+    id: '3',
+    ticket: {
+      subject: "Sed ut perspiciatis unde omnis iste",
+      description: "ab illo inventore veritatis et quasi arc",
+    },
+    address: 'Sydney No. 1 Lake Park',
+    status: 'Open',
+    assignTo: {
+      name: 'Mehzin Jahin',
+      image: "https://res.cloudinary.com/dba7qvc2l/image/upload/v1720157722/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash_uftkdg.jpg",
+    }
+  },
+];

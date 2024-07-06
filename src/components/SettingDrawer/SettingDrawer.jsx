@@ -1,50 +1,31 @@
-import { useState } from 'react';
-import { Button, Drawer, Radio, Space } from 'antd';
-const SettingDrawer = () => {
-    const [open, setOpen] = useState(false);
-    const [placement, setPlacement] = useState('right');
-    const showDrawer = () => {
-        setOpen(true);
-    };
-    const onChange = (e) => {
-        setPlacement(e.target.value);
-    };
+import { Drawer } from 'antd';
+import { bool } from 'prop-types';
+import Theme from './Theme/Theme';
+import Color from './color/Color';
+
+const SettingDrawer = ({ open, setOpen }) => {
+
     const onClose = () => {
         setOpen(false);
     };
     return (
         <>
-            <Space>
-                <Radio.Group value={placement} onChange={onChange}>
-                    <Radio value="top">top</Radio>
-                    <Radio value="right">right</Radio>
-                    <Radio value="bottom">bottom</Radio>
-                    <Radio value="left">left</Radio>
-                </Radio.Group>
-                <Button type="primary" onClick={showDrawer}>
-                    Open
-                </Button>
-            </Space>
             <Drawer
-                title="Drawer with extra actions"
-                placement={placement}
-                width={500}
+                title="Pick Your Style"
+                placement="right"
+                width={300}
                 onClose={onClose}
                 open={open}
-                extra={
-                    <Space>
-                        <Button onClick={onClose}>Cancel</Button>
-                        <Button type="primary" onClick={onClose}>
-                            OK
-                        </Button>
-                    </Space>
-                }
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <Theme/>
+                <Color/>
+
             </Drawer>
         </>
     );
 };
+SettingDrawer.propTypes = {
+    open: bool,
+    setOpen: bool,
+}
 export default SettingDrawer;

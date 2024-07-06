@@ -1,9 +1,11 @@
-import { Space, Table, Tag } from "antd";
+import { Space, Table, Tag, Input, Popconfirm, message } from "antd";
 import HomeBox from "../../../components/homeBox/HomeBox";
-import { ticketBoxdata } from "../../../Data";
+import { ticketBoxdata, ticketData } from "../../../Data";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useState } from "react";
 
+const { Search } = Input;
 const columns = [
   {
     title: 'ID',
@@ -15,6 +17,12 @@ const columns = [
     title: 'Tickets',
     dataIndex: 'ticket',
     key: 'ticket',
+    render: (ticket) => (
+      <>
+        <p className="text-[#5D87FF]">{ticket?.subject}</p>
+        <p className="text-[#777] text-xs">{ticket?.description}</p>
+      </>
+    )
   },
   {
     title: 'Assign To',
@@ -47,58 +55,68 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a><FaRegEdit className='text-green-800' /></a>
-        <a><RiDeleteBin6Line className='text-red-500' /></a>
-      </Space>
-    ),
-  },
-];
-const data = [
-  {
-    key: '1',
-    id: '1',
-    ticket: "Sed ut perspiciatis unde omnis iste",
-    address: 'New York No. 1 Lake Park',
-    status: "Close",
-    assignTo: {
-      name: 'Dilshad Jahin',
-      image: "https://res.cloudinary.com/dba7qvc2l/image/upload/v1720157722/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash_uftkdg.jpg",
-    }
-  },
-  {
-    key: '2',
-    id: '2',
-    ticket: "Sed ut perspiciatis unde omnis iste",
-    address: 'London No. 1 Lake Park',
-    status: 'Pending',
-    assignTo: {
-      name: 'Daisy Jahin',
-      image: "https://res.cloudinary.com/dba7qvc2l/image/upload/v1720157721/linkedin-sales-solutions-pAtA8xe_iVM-unsplash_e4svmu.jpg",
-    }
-  },
-  {
-    key: '3',
-    id: '3',
-    ticket: "Sed ut perspiciatis unde omnis iste",
-    address: 'Sydney No. 1 Lake Park',
-    status: 'Open',
-    assignTo: {
-      name: 'Mehzin Jahin',
-      image: "https://res.cloudinary.com/dba7qvc2l/image/upload/v1720157722/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash_uftkdg.jpg",
-    }
+    render: () => {
+
+      const confirm = (e) => {
+        console.log(e);
+        message.success('Successfully Deleted!');
+      };
+      const cancel = (e) => {
+        console.log(e);
+        message.error('Delete Canceled!');
+      };
+      return (
+
+        <Space size="middle">
+          <Popconfirm
+            title="Delete the task"
+            description="Are you sure to delete this task?"
+            onConfirm={confirm}
+            onCancel={cancel}
+            okText="Yes"
+            cancelText="No"
+
+          >
+            <a><RiDeleteBin6Line className='text-red-500' /></a>
+          </Popconfirm>
+        </Space>
+      )
+
+    },
   },
 ];
 
+
 export default function Tickets() {
+  const [, setSearch] = useState("");
+  const [filterData, setFilterData] = useState(ticketData);
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+
+    setSearch(value);
+    const filtered = ticketData?.filter((item) =>
+      item?.ticket?.subject?.toLowerCase().includes(value?.toLowerCase()) ||
+      item?.status?.toLowerCase()?.includes(value?.toLowerCase()) ||
+      item?.assignTo?.name?.toLocaleLowerCase()?.includes(value?.toLocaleLowerCase())
+    );
+
+    setFilterData(filtered);
+  }
+
   return (
     <div className="max-w-5xl mx-auto">
 
       <HomeBox data={ticketBoxdata} grid="grid md:grid-cols-2 xl:grid-cols-4" />
 
       <div className="mt-6" >
-        <Table columns={columns} dataSource={data} />
+        <div className="bg-white w-[200px] h-[80px]">
+          <Search
+            placeholder="search"
+            onChange={handleSearch}
+          />
+        </div>
+        <Table columns={columns} dataSource={filterData} pagination={{ pageSize: 2 }} />
       </div>
 
     </div>
