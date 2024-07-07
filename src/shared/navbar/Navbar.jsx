@@ -7,8 +7,9 @@ import { useState } from "react";
 import MobileDrawer from "../../components/mobileDrawer/MobileDrawer";
 import SearchModal from "../../components/searchModal/SearchModal";
 import Language from "../../components/language/Language";
+import {bool} from 'prop-types';
 
-const Navbar = () => {
+const Navbar = ({isClicked,setIsClicked}) => {
   const [open, setOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -21,12 +22,20 @@ const Navbar = () => {
     setIsModalOpen(true);
   };
 
+  const handleClicked = () => { 
+    setIsClicked(!isClicked);
+  }
+
   return (
     <div className="flex justify-between items-center w-full">
       <div className="flex items-center gap-6">
-        <div onClick={showDrawer}>
+        {!isLarge ? (<div onClick={handleClicked} >
           <FiMenu />
-        </div>
+        </div>) : (
+          <div onClick={showDrawer}>
+            <FiMenu />
+          </div>
+        )}
 
         <MobileDrawer open={open} setOpen={setOpen} />
 
@@ -42,7 +51,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <SearchModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+      <SearchModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
 
       <div className="flex items-center gap-6">
         <Language />
@@ -63,4 +72,8 @@ const Navbar = () => {
   );
 };
 
+Navbar.propTypes = {
+  isClicked:bool,
+  setIsClicked:bool
+};
 export default Navbar;

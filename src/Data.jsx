@@ -150,7 +150,7 @@ export const ticketData = [
   },
 ];
 
-export  const TableData = [
+export  const tableData = [
   {
       key: '1',
       name: 'John Brown',

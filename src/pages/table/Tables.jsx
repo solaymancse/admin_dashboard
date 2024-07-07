@@ -1,7 +1,8 @@
 import { message, Popconfirm, Space, Table, Tag } from 'antd';
 import TableHeader from './tableHeader/TableHeader';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { TableData } from '../../Data';
+import { tableData } from '../../Data';
+import { useState } from 'react';
 const columns = [
     {
         title: 'Name',
@@ -74,11 +75,13 @@ const columns = [
 ];
 
 const Tables = () => {
+    const [filterData, setFilterData] = useState(tableData);
 
+    console.log(filterData)
     return (
         <>
-            <TableHeader />
-            <Table columns={columns} dataSource={TableData} pagination={{ pageSize: 2 }} />
+            <TableHeader setFilterData={setFilterData} tableData={tableData}/>
+            <Table columns={columns} dataSource={filterData} pagination={{ pageSize: 2 }} />
         </>
     )
 };

@@ -3,28 +3,31 @@ import Modals from "../../../components/resusable/modals.jsx/Modals";
 import { useState } from "react";
 import AddCustomer from "../../../components/addCustomer/AddCustomer";
 import { IoIosSearch } from "react-icons/io";
+import { array } from "prop-types";
 
-const TableHeader = () => {
+const TableHeader = ({setFilterData,tableData}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     // search button 
 
-    const [search, setSearch] = useState("");
-    const [filterData, setFilterData] = useState(TableData);
+    const [, setSearch] = useState("");
+    
 
     const handleSearch = e => {
         const value = e.target.value;
-        setSearch(value)
+        setSearch(value);
 
-        const filtered  = TableData?.filter((item)=> 
-            item?.name.toLowerCase().includes(value?.toLowerCase()) ||
-            item?.age.toLowerCase().includes(value.toLowerCase()) ||
-            item?.address.toLowerCase().includes(value.toLowerCase())
+        const filtered = tableData?.filter((item) =>
+            item?.name?.toLowerCase().includes(value?.toLowerCase()) ||
+            item?.age?.toString().toLowerCase().includes(value.toLowerCase()) ||
+            item?.address?.toLowerCase().includes(value.toLowerCase())
         );
         setFilterData(filtered)
+        console.log('filtered',filtered)
     } 
 
 
+  
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -80,4 +83,9 @@ const TableHeader = () => {
     )
 }
 
+TableHeader.propTypes = {
+
+    setFilterData: array,
+    tableData: array,
+}
 export default TableHeader

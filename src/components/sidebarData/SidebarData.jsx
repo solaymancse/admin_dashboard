@@ -13,7 +13,6 @@ export const SidebarData = [
         title: "Dashboard",
         path: "/dashboard",
         icon: <RiDashboardHorizontalFill />,
-        cName: "nav-text",
     },
     {
         title: "Profile",
@@ -31,7 +30,17 @@ export const SidebarData = [
         title: "Blogs",
         path: "/blogs",
         icon: <FaBlogger />,
-        cName: "nav-text",
+        isDropdown: true,
+        subItems : [
+            {
+                title: "Post",
+                icon: <FaUsers />,
+            },
+            {
+                title: "Details",
+                icon: <FaUsers />,
+            },
+        ]
     },
     {
         title: "Contacts",
@@ -50,6 +59,17 @@ export const SidebarData = [
         path: "/users",
         icon: <FaUsers />,
         cName: "nav-text",
+        isDropdown: true,
+        subItems : [
+            {
+                title: "Profile",
+                icon: <FaUsers />,
+            },
+            {
+                title: "Follower",
+                icon: <FaUsers />,
+            },
+        ]
     },
  
     {
