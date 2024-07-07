@@ -7,6 +7,25 @@ import { IoIosSearch } from "react-icons/io";
 const TableHeader = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // search button 
+
+    const [search, setSearch] = useState("");
+    const [filterData, setFilterData] = useState(TableData);
+
+    const handleSearch = e => {
+        const value = e.target.value;
+        setSearch(value)
+
+        const filtered  = TableData?.filter((item)=> 
+            item?.name.toLowerCase().includes(value?.toLowerCase()) ||
+            item?.age.toLowerCase().includes(value.toLowerCase()) ||
+            item?.address.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilterData(filtered)
+    } 
+
+
+
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -18,7 +37,7 @@ const TableHeader = () => {
             </div>
            
             <div className="flex justify-between items-center border border-slate-200 py-1 rounded-md px-4">
-              <input type="text" placeholder="Search" className="outline-none" />
+              <input type="text" placeholder="Search" onChange={handleSearch} className="outline-none" />
               <IoIosSearch />
             </div>
                

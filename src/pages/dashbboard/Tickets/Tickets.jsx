@@ -1,7 +1,6 @@
 import { Space, Table, Tag, Input, Popconfirm, message } from "antd";
 import HomeBox from "../../../components/homeBox/HomeBox";
 import { ticketBoxdata, ticketData } from "../../../Data";
-import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useState } from "react";
 
@@ -88,6 +87,7 @@ const columns = [
 
 
 export default function Tickets() {
+
   const [, setSearch] = useState("");
   const [filterData, setFilterData] = useState(ticketData);
 

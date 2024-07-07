@@ -1,7 +1,7 @@
-import { Space, Table, Tag } from 'antd';
+import { message, Popconfirm, Space, Table, Tag } from 'antd';
 import TableHeader from './tableHeader/TableHeader';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { FaRegEdit } from 'react-icons/fa';
+import { TableData } from '../../Data';
 const columns = [
     {
         title: 'Name',
@@ -42,43 +42,43 @@ const columns = [
     {
         title: 'Action',
         key: 'action',
-        render: (_, record) => (
-            <Space size="middle">
-                <a><FaRegEdit className='text-green-800' /></a>
-                <a><RiDeleteBin6Line className='text-red-500' /></a>
-            </Space>
-        ),
+        render: () => {
+
+            const confirm = (e) => {
+                console.log(e);
+                message.success('Successfully Deleted!');
+            };
+            const cancel = (e) => {
+                console.log(e);
+                message.error('Delete Canceled!');
+            };
+            return (
+
+                <Space size="middle">
+                    <Popconfirm
+                        title="Delete the task"
+                        description="Are you sure to delete this task?"
+                        onConfirm={confirm}
+                        onCancel={cancel}
+                        okText="Yes"
+                        cancelText="No"
+
+                    >
+                        <a><RiDeleteBin6Line className='text-red-500' /></a>
+                    </Popconfirm>
+                </Space>
+            )
+
+        },
     },
 ];
-const data = [
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sydney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-];
+
 const Tables = () => {
 
     return (
         <>
             <TableHeader />
-            <Table columns={columns} dataSource={data} />
+            <Table columns={columns} dataSource={TableData} pagination={{ pageSize: 2 }} />
         </>
     )
 };

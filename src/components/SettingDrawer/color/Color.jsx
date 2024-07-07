@@ -41,7 +41,7 @@ const Color = () => {
     return (
         <div>
             <p className="text-sm font-medium my-4">Color Changes</p>
-            <div className="grid grid-cols-6 gap-2">
+            <div className="grid grid-cols-6 gap-2 my-6">
                 {colorData?.map((item,idx) => (
                     <div key={idx} className={`w-[30px] h-[30px]  rounded-full ${item?.color}`}>
 
