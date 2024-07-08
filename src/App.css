@@ -4,7 +4,6 @@
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
     scroll-behavior: smooth;
-
 }
 
 body {
@@ -23,7 +22,30 @@ body {
     display: none !important;
 }
 
-.active{
+.active {
     background-color: #687EFF;
     color: #F3F6FD;
+}
+
+/* ant design custom collapse */
+.sidebar .ant-collapse {
+    border: none !important;
+}
+
+.sidebar .ant-collapse .ant-collapse-content {
+    border-top: none !important;
+}
+
+.ant-collapse .ant-collapse-content > .ant-collapse-content-box {
+    padding: 6px 16px !important;
+}
+
+/* .sidebar .ant-collapse-header {
+    background-color: #fff !important;
+} */
+
+.sidebar .sidebar2 .ant-collapse-header {
+    background-color: #687EFF !important;
+    border-radius: 8px !important;
+    color: #fff !important;
 }

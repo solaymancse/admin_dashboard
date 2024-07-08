@@ -7,6 +7,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdOutlineLogout, MdWidgets } from "react-icons/md";
 import { RiDashboardHorizontalFill } from "react-icons/ri";
 import { TiContacts, TiTicket } from "react-icons/ti";
+import { VscDebugBreakpointDataUnverified } from "react-icons/vsc";
 
 export const SidebarData = [
     {
@@ -34,11 +35,11 @@ export const SidebarData = [
         subItems : [
             {
                 title: "Post",
-                icon: <FaUsers />,
+                icon: <VscDebugBreakpointDataUnverified  />,
             },
             {
                 title: "Details",
-                icon: <FaUsers />,
+                icon: <VscDebugBreakpointDataUnverified  />,
             },
         ]
     },
