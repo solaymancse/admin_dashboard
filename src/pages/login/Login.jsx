@@ -16,8 +16,8 @@ const Login = () => {
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
-      const userCredential =  await signInWithEmailAndPassword(auth, email, password);
-      
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
       const user = userCredential.user;
       // Save user data in local storage
       localStorage.setItem('authUser', JSON.stringify(user));
@@ -32,14 +32,14 @@ const Login = () => {
 
     <div className="w-full h-screen py-10 px-2 md:px-0">
       <div className="mx-auto w-full md:w-[500px] px-10 h-[550px] pt-20 pb-4 bg-white shadow-sm rounded-md ">
-      {error && <p className="text-center bg-red-100 text-red-500 py-2 mb-2 rounded-md">{error}</p>}
-       
+        {error && <p className="text-center bg-red-100 text-red-500 py-2 mb-2 rounded-md">{error}</p>}
+
         <form onSubmit={handleLogIn} className="rounded-none h-full">
 
           <h2 className="text-2xl mb-4 font-bold  text-center text-[#6B66F6] ">Admin Login</h2>
 
           <div className="relative mt-12  w-full  mb-4">
-            <Input  onChange={(e) => setEmail(e.target.value)} className="py-2 " placeholder="Enter your email address" type="email" name="email" />
+            <Input onChange={(e) => setEmail(e.target.value)} className="py-2 " placeholder="Enter your email address" type="email" name="email" />
 
           </div>
 
@@ -59,14 +59,14 @@ const Login = () => {
 
             </div>
 
-            <Link className="text-[#6B66F6] md:text-sm text-xs font-semibold">Forgot Password?</Link>
+            <Link to='/forgot-password' className="text-[#6B66F6] md:text-sm text-xs font-semibold">Forgot Password?</Link>
           </div>
           <div className="form-control mt-6">
             <button className="md:p-3 p-1 lg:py-2 md:py-1 py-2 rounded bg-[#6B66F6] text-white font-semibold md:text-base text-sm">Login</button>
           </div>
 
           <div className="mt-12">
-            <p className="my-4 font-semibold text-center md:text-sm text-xs">Don't Have An Account? <Link to='/register' className="text-[#6B66F6] md:text-sm text-xs">Create an account</Link>
+            <p className="my-4 font-semibold text-center md:text-sm text-xs">Dont Have An Account? <Link to='/register' className="text-[#6B66F6] md:text-sm text-xs">Create an account</Link>
             </p>
 
           </div>

@@ -16,30 +16,53 @@ export const SidebarData = [
         icon: <RiDashboardHorizontalFill />,
     },
     {
+        title: "Tickets",
+        path: "/dashboard/tickets",
+        icon: <TiTicket />,
+        cName: "nav-text",
+    },
+    {
+        title: "Chat",
+        path: "/dashboard/chat",
+        icon: <HiOutlineCurrencyDollar />,
+        cName: "nav-text",
+    },
+    {
+        title: "Form",
+        path: "/dashboard/form",
+        icon: <IoBarChartSharp />,
+    },
+    {
+        title: "Table",
+        path: "/dashboard/table",
+        icon: <IoBarChartSharp />,
+    },
+    {
+        title: "Settings",
+        path: "/dashboard/settings",
+        icon: <IoMdSettings />,
+        cName: "nav-text",
+    },
+    {
         title: "Profile",
         path: "/profile",
         icon: <CgProfile />,
         cName: "nav-text",
     },
-    {
-        title: "Tickets",
-        path: "/dashboard/tickets",
-        icon: <TiTicket/>,
-        cName: "nav-text",
-    },
+
     {
         title: "Blogs",
         path: "/blogs",
         icon: <FaBlogger />,
         isDropdown: true,
-        subItems : [
+        subItems: [
             {
                 title: "Post",
-                icon: <VscDebugBreakpointDataUnverified  />,
+                icon: <VscDebugBreakpointDataUnverified />,
             },
             {
                 title: "Details",
-                icon: <VscDebugBreakpointDataUnverified  />,
+                icon: <VscDebugBreakpointDataUnverified />,
             },
         ]
     },
@@ -61,7 +84,7 @@ export const SidebarData = [
         icon: <FaUsers />,
         cName: "nav-text",
         isDropdown: true,
-        subItems : [
+        subItems: [
             {
                 title: "Profile",
                 icon: <FaUsers />,
@@ -72,7 +95,7 @@ export const SidebarData = [
             },
         ]
     },
- 
+
     {
         title: "Email",
         path: "/email",
@@ -91,12 +114,7 @@ export const SidebarData = [
         icon: <MdWidgets />,
         cName: "nav-text",
     },
-    {
-        title: "Chat",
-        path: "/dashboard/chat",
-        icon: <HiOutlineCurrencyDollar />,
-        cName: "nav-text",
-    },
+
     {
         title: "Pricing",
         path: "/dashboard/pricing",
@@ -109,28 +127,15 @@ export const SidebarData = [
         icon: <IoBarChartSharp />,
         cName: "nav-text",
     },
-    {
-        title: "Form",
-        path: "/dashboard/form",
-        icon: <IoBarChartSharp />,
-    },
-    {
-        title: "table",
-        path: "/dashboard/table",
-        icon: <IoBarChartSharp />,
-    },
+
+
     {
         title: "Notifications",
         path: "/notifications",
         icon: <IoMdNotifications />,
         cName: "nav-text",
     },
-    {
-        title: "Settings",
-        path: "/dashboard/settings",
-        icon: <IoMdSettings />,
-        cName: "nav-text",
-    },
+
     {
         title: "Logout",
         path: "/",

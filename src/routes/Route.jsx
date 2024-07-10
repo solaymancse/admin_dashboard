@@ -10,21 +10,23 @@ import Tickets from "../pages/dashbboard/Tickets/Tickets";
 import Setting from "../pages/setting/Setting";
 import MainLayout from "../pages/form/MainLayout";
 import PrivateRoute from "../components/privateRoute/PrivateRoute";
-import AuthWrapper from "../components/authWrapper/AuthWrapper";
+import ForgotPassword from "../pages/forgetPassword/ForgetPassword";
 
 export const route = createBrowserRouter([
     {
         path: "/",
-        element: (
-            <AuthWrapper>
-                <Login />
-            </AuthWrapper>
-        )
+        element: <Login />
+
+
     },
     {
         path: "/register",
         element: <SignUp />
 
+    },
+    {
+        path: '/forgot-password',
+        element: <ForgotPassword />
     },
     {
         path: "/dashboard",
