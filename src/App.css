@@ -12,7 +12,7 @@ body {
     background-color: #F3F6FD;
 }
 
-.ant-select-selector {
+.languageSelect .ant-select-selector {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;

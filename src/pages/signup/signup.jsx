@@ -1,25 +1,33 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa"
 import { Link, useNavigate } from "react-router-dom"
-
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../../firebase/firebase";
 
 const SignUp = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+
   const navigate = useNavigate();
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password);
 
-    navigate('/')
-    
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/');
+    } catch (error) {
+      setError(error.message);
+    }
   }
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="w-full h-screen py-10 px-2 md:px-0">
       <div className="mx-auto w-full md:w-[500px] px-10  pt-20 pb-4 bg-white shadow-sm rounded-md ">
-        <form onSubmit={handleSubmit} className="">
+        {error && <p>{error}</p>}
+
+        <form onSubmit={handleSubmit}>
 
           <h2 className="text-2xl text-center font-semibold  my-4">Create an account</h2>
           <div className="relative h-11 w-full min-w-[200px] mb-4 ">
@@ -41,7 +49,7 @@ const SignUp = () => {
           </div>
 
           <div className="relative h-11 w-full min-w-[200px] mb-6">
-            <input placeholder="Enter your email address" type="email" name="email"
+            <input onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email address" type="email" name="email"
               className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
             <label
               className="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] leading-tight text-xl font-semibold text-[#403F3F] transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
@@ -52,7 +60,7 @@ const SignUp = () => {
           <div className="relative  h-11 w-full min-w-[200px] mb-4">
             <div className="flex relative">
 
-              <input placeholder="Enter your password" name="password" type={showPassword ? "text" : "password"}
+              <input onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" name="password" type={showPassword ? "text" : "password"}
                 className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
               <br />
               <span className="absolute right-0 top-0" onClick={() => setShowPassword(!showPassword)}>

@@ -1,32 +1,45 @@
 import { Input } from "antd";
 import { Link, useNavigate } from "react-router-dom"
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
+import { useState } from "react";
+import { auth } from "../../firebase/firebase";
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+
   const navigate = useNavigate();
 
 
-  const handleLogIn = e => {
+  const handleLogIn = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password)
-    navigate('/dashboard')
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/dashboard')
+    } catch (error) {
+      setError(error.message);
+    }
+
   }
   return (
-    
+
     <div className="w-full h-screen py-10 px-2 md:px-0">
       <div className="mx-auto w-full md:w-[500px] px-10 h-[550px] pt-20 pb-4 bg-white shadow-sm rounded-md ">
+      {error && <p>{error}</p>}
+       
         <form onSubmit={handleLogIn} className="rounded-none h-full">
 
           <h2 className="text-2xl mb-4 font-bold  text-center text-[#6B66F6] ">Admin Login</h2>
 
           <div className="relative mt-12  w-full  mb-4">
-            <Input className="py-2 " placeholder="Enter your email address" type="email" name="email" />
+            <Input  onChange={(e) => setEmail(e.target.value)} className="py-2 " placeholder="Enter your email address" type="email" name="email" />
 
           </div>
 
           <div className="relative mt-4">
-            <Input className="py-2 " placeholder="Enter your Password" type="password" name="password" />
+            <Input onChange={(e) => setPassword(e.target.value)} className="py-2 " placeholder="Enter your Password" type="password" name="password" />
 
           </div>
 
