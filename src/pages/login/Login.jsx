@@ -16,8 +16,13 @@ const Login = () => {
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential =  await signInWithEmailAndPassword(auth, email, password);
+      
+      const user = userCredential.user;
+      // Save user data in local storage
+      localStorage.setItem('authUser', JSON.stringify(user));
       navigate('/dashboard')
+
     } catch (error) {
       setError(error.message);
     }
@@ -27,7 +32,7 @@ const Login = () => {
 
     <div className="w-full h-screen py-10 px-2 md:px-0">
       <div className="mx-auto w-full md:w-[500px] px-10 h-[550px] pt-20 pb-4 bg-white shadow-sm rounded-md ">
-      {error && <p>{error}</p>}
+      {error && <p className="text-center bg-red-100 text-red-500 py-2 mb-2 rounded-md">{error}</p>}
        
         <form onSubmit={handleLogIn} className="rounded-none h-full">
 

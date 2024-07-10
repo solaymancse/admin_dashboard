@@ -9,11 +9,17 @@ import Tables from "../pages/table/Tables";
 import Tickets from "../pages/dashbboard/Tickets/Tickets";
 import Setting from "../pages/setting/Setting";
 import MainLayout from "../pages/form/MainLayout";
+import PrivateRoute from "../components/privateRoute/PrivateRoute";
+import AuthWrapper from "../components/authWrapper/AuthWrapper";
 
 export const route = createBrowserRouter([
     {
         path: "/",
-        element: <Login />
+        element: (
+            <AuthWrapper>
+                <Login />
+            </AuthWrapper>
+        )
     },
     {
         path: "/register",
@@ -22,7 +28,11 @@ export const route = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+            <PrivateRoute>
+                <Dashboard />
+            </PrivateRoute>
+        ),
         children: [
             {
                 path: "/dashboard",
