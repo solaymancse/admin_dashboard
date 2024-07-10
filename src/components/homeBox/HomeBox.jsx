@@ -11,8 +11,8 @@ const HomeBox = ({data,grid}) => {
                     </div>
 
                     <div className="flex flex-col col-span-2  w-full ">
-                        <p className="text-[#777] font-semibold">{item?.title}</p>
-                        <p className="text-xl font-semibold">{item?.number}</p>
+                        <p className="text-[#777]  font-semibold">{item?.title}</p>
+                        <p className=" text-sm md:text-xl font-semibold">{item?.number}</p>
                     </div>
                 </div>
             ))}

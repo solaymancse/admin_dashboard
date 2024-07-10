@@ -1,9 +1,8 @@
-import { Popconfirm, Space, Table, Tag, message } from "antd";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import {  Space, Table, Tag} from "antd";
 import { permisionData } from "../../../Data";
 import { FaPlus } from "react-icons/fa";
 import { MdOutlineEditNote } from "react-icons/md";
-import { Children, useState } from "react";
+import { useState } from "react";
 import Modals from "../../resusable/modals.jsx/Modals";
 import PermissionData from "../../permissionData/PermissionData";
 const colors = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
@@ -79,7 +78,7 @@ const RoleCard = () => {
     };
     return (
         <div className="">
-            <Table dataSource={permisionData} columns={columns(handleOpenModal)} />
+            <Table scroll={{ x: 600 }} dataSource={permisionData} columns={columns(handleOpenModal)} />
 
             <Modals isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
                 <PermissionData />
