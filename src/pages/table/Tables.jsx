@@ -3,6 +3,7 @@ import TableHeader from './tableHeader/TableHeader';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { tableData } from '../../Data';
 import { useState } from 'react';
+
 const columns = [
     {
         title: 'Name',
@@ -81,7 +82,7 @@ const Tables = () => {
     return (
         <>
             <TableHeader setFilterData={setFilterData} tableData={tableData}/>
-            <Table columns={columns} dataSource={filterData} pagination={{ pageSize: 2 }} />
+            <Table  scroll={{ x: 600 }} columns={columns} dataSource={filterData} pagination={{ pageSize: 2 }} />
         </>
     )
 };

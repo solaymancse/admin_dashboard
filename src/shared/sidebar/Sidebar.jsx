@@ -1,12 +1,12 @@
 import { SidebarData } from "../../components/sidebarData/SidebarData";
 import logo from "../../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
-import { bool } from "prop-types";
+import { bool, func } from "prop-types";
 import { Collapse } from "antd";
 import { useState } from "react";
 const { Panel } = Collapse;
 
-const Sidebar = ({ isClicked }) => {
+const Sidebar = ({ isClicked, onClose }) => {
   const [handleIsActiveIndex, setHandleIsActiveIndex] = useState(null);
   const location = useLocation();
 
@@ -35,39 +35,42 @@ const Sidebar = ({ isClicked }) => {
             {item?.isDropdown ? (
               <Collapse
                 expandIconPosition="right"
+                expandIcon={!isClicked ? undefined : () => null}
                 onChange={onChange}
-                className={`${index.toString() === handleIsActiveIndex ? 'sidebar2' : 'bg-white'}`}
+                className={`${index.toString() === handleIsActiveIndex ? 'sidebar2' : 'bg-white'} ${isClicked ? "sidebar3" : "pl-0"}`}
               >
                 <Panel
                   header={
-                    <div className={`flex gap-4  justify-start text-start items-center px-2 rounded-lg`}>
+                    <div className={`flex gap-4   justify-start text-start items-center pl-[10px] rounded-lg`}>
                       {item?.icon}
-                      <p className="ml-1">{item?.title}</p>
+                      {!isClicked && <p className="ml-1 text-sm">{item?.title}</p>}
                     </div>
                   }
                   key={index.toString()}
                 >
                   {item?.subItems?.map((subItem, subIndex) => (
                     <Link
+                      onClick={onClose}
                       key={subIndex}
                       to={subItem?.path}
-                      className={`flex mb-4 justify-start text-start items-center px-2 rounded-lg ${locationHandler(subItem?.path)} hover:bg-blue-100`}
+                      className={`flex mb-4 justify-start text-start items-center rounded-lg ${locationHandler(subItem?.path)} hover:bg-blue-100`}
                     >
                       {subItem?.icon}
-                      <span className="ml-2">{subItem?.title}</span>
+                      <span className="ml-2 text-sm ">{subItem?.title}</span>
                     </Link>
                   ))}
                 </Panel>
               </Collapse>
             ) : (
               <Link
+                onClick={onClose}
                 to={item?.path}
-                className={`flex justify-start text-start items-center px-2 rounded-lg ${locationHandler(item?.path)} hover:bg-blue-100`}
+                className={`flex justify-start text-start items-center ml-2  rounded-lg ${locationHandler(item?.path)} hover:bg-blue-100`}
               >
                 <div className="w-[50px] h-[45px] rounded-full flex items-center justify-center">
                   {item?.icon}
                 </div>
-                {!isClicked && <div className="flex justify-start text-start">{item.title}</div>}
+                {!isClicked && <div className="flex text-sm justify-start text-start">{item.title}</div>}
               </Link>
             )}
           </div>
@@ -79,6 +82,7 @@ const Sidebar = ({ isClicked }) => {
 
 Sidebar.propTypes = {
   isClicked: bool,
+  onClose: func,
 };
 
 export default Sidebar;

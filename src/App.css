@@ -36,7 +36,7 @@ body {
     border-top: none !important;
 }
 
-.ant-collapse .ant-collapse-content > .ant-collapse-content-box {
+.ant-collapse .ant-collapse-content>.ant-collapse-content-box {
     padding: 6px 16px !important;
 }
 
@@ -49,3 +49,4 @@ body {
     border-radius: 8px !important;
     color: #fff !important;
 }
+

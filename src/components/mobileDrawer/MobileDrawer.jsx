@@ -1,5 +1,6 @@
 import { Drawer } from 'antd';
 import PropTypes from 'prop-types';
+import Sidebar from '../../shared/sidebar/Sidebar';
 
 const MobileDrawer = ({ open, setOpen }) => {
 
@@ -9,16 +10,13 @@ const MobileDrawer = ({ open, setOpen }) => {
 
   return (
     <Drawer
-      title="Basic Drawer"
       placement="left"
       closable={false}
       onClose={onClose}
       open={open}
       width={280}
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <Sidebar onClose={onClose}/>
     </Drawer>
   );
 };

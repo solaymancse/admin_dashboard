@@ -127,13 +127,13 @@ export const SidebarData = [
     },
     {
         title: "Settings",
-        path: "/settings",
+        path: "/dashboard/settings",
         icon: <IoMdSettings />,
         cName: "nav-text",
     },
     {
         title: "Logout",
-        path: "/logout",
+        path: "/",
         icon: <MdOutlineLogout />,
         cName: "nav-text",
     }

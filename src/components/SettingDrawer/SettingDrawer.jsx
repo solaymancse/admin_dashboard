@@ -1,12 +1,14 @@
-import { Drawer } from 'antd';
+import { Drawer, Slider } from 'antd';
 import { bool } from 'prop-types';
 import Theme from './Theme/Theme';
 import Color from './color/Color';
 import LayoutType from './Layout/LayoutType';
 import ContainerOption from './Container/ContainerOption';
 import CardWith from './Card/CardWith';
+import { useState } from 'react';
 
 const SettingDrawer = ({ open, setOpen }) => {
+    const [stepsCount, setStepsCount] = useState(5);
 
     const onClose = () => {
         setOpen(false);
@@ -20,11 +22,16 @@ const SettingDrawer = ({ open, setOpen }) => {
                 onClose={onClose}
                 open={open}
             >
-                <Theme/>
-                <Color/>
-                <LayoutType/>
-                <ContainerOption/>
-                <CardWith/>
+                <Theme />
+                <Color />
+                <LayoutType />
+                <ContainerOption />
+                <CardWith />
+
+                <div className='mt-6'>
+                    <p className="text-sm font-medium my-4 ">Theme Border Radius</p>
+                    <Slider min={2} max={10} value={stepsCount} onChange={setStepsCount} />
+                </div>
 
             </Drawer>
         </>

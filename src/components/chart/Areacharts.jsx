@@ -4,7 +4,7 @@ import {
   Area,
   ResponsiveContainer,
 } from 'recharts';
-
+import { number } from 'prop-types'
 const data = [
   {
     name: 'Page A',
@@ -50,25 +50,25 @@ const data = [
   },
 ];
 
-const Areacharts = () => {
+const Areacharts = ({ height, top }) => {
   return (
     <div style={{ width: '100%' }}>
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer width="100%" height={height ? height : 200}>
         <AreaChart
           width={500}
           height={200}
           data={data}
           syncId="anyId"
           margin={{
-            top: 80,
+            top: top ? top : 80,
             right: 30,
             left: 0,
             bottom: 0,
           }}
         >
-       
+
           <Tooltip />
-          <Area type="monotone" dataKey="pv"  fill="#F6FCFF" />
+          <Area type="monotone" dataKey="pv" fill="#F6FCFF" />
         </AreaChart>
       </ResponsiveContainer>
     </div>
@@ -77,4 +77,8 @@ const Areacharts = () => {
 
 Areacharts.demoUrl = 'https://codesandbox.io/p/sandbox/synchronized-line-charts-37rhmf';
 
+Areacharts.propTypes = {
+  height: number,
+  top: number,
+}
 export default Areacharts;

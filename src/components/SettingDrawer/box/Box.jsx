@@ -1,8 +1,8 @@
-import { element, string } from "prop-types"
+import { element, string,func } from "prop-types"
 
-const Box = ({ icon, title }) => {
+const Box = ({ icon, title,onClick }) => {
     return (
-        <div className=" flex  border border-slate-200 hover:bg-slate-100 cursor-pointer flex-col justify-evenly items-center  w-full h-[60px] rounded-md ">
+        <div onClick={onClick} className=" flex  border border-slate-200 hover:bg-slate-100 cursor-pointer flex-col justify-evenly items-center  w-full h-[60px] rounded-md ">
             <div className=" text-[20px] text-[#687EFF]">
                 {icon}
             </div>
@@ -13,6 +13,7 @@ const Box = ({ icon, title }) => {
 
 Box.propTypes = {
     icon: element,
-    title: string
+    title: string,
+    onClick: func
 }
 export default Box
