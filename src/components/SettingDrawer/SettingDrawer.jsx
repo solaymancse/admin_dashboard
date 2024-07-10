@@ -7,7 +7,7 @@ import ContainerOption from './Container/ContainerOption';
 import CardWith from './Card/CardWith';
 import { useState } from 'react';
 
-const SettingDrawer = ({ open, setOpen }) => {
+const SettingDrawer = ({ open, setOpen,setVerticalLayout }) => {
     const [stepsCount, setStepsCount] = useState(5);
 
     const onClose = () => {
@@ -21,10 +21,11 @@ const SettingDrawer = ({ open, setOpen }) => {
                 width={300}
                 onClose={onClose}
                 open={open}
+                
             >
                 <Theme />
-                <Color />
-                <LayoutType />
+                <Color onClose={onClose}/>
+                <LayoutType setVerticalLayout={setVerticalLayout}/>
                 <ContainerOption />
                 <CardWith />
 
@@ -40,5 +41,6 @@ const SettingDrawer = ({ open, setOpen }) => {
 SettingDrawer.propTypes = {
     open: bool,
     setOpen: bool,
+    setVerticalLayout: bool,
 }
 export default SettingDrawer;

@@ -110,16 +110,16 @@ export default function Tickets() {
       <HomeBox data={ticketBoxdata} grid="grid md:grid-cols-2 xl:grid-cols-4" />
 
       <div className="mt-6" >
-        <div className="bg-white w-full flex justify-center py-6 px-2 h-[80px]">
+        <div className="bg-white dark:bg-dark dark:text-white w-full flex justify-center py-6 px-2 h-[80px]">
           <div className="w-[400px] border h-[40px] rounded-lg px-2">
             <input
-              className="w-full h-full text-xs outline-none "
+              className="w-full h-full text-xs outline-none dark:bg-dark dark:text-white"
               placeholder="Search ..."
               onChange={handleSearch}
             />
           </div>
         </div>
-        <Table scroll={{ x: 600 }} columns={columns} dataSource={filterData} pagination={{ pageSize: 2 }} />
+        <Table className="dark:bg-dark dark:text-white" scroll={{ x: 600 }} columns={columns} dataSource={filterData} pagination={{ pageSize: 2 }} />
       </div>
 
     </div>

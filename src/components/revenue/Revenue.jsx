@@ -7,11 +7,16 @@ import Areacharts from "../chart/Areacharts";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { revenueData } from "../../Data";
 import Card from "../card/Card";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../features/theme/themeSlice";
 
 const Revenue = () => {
+    const { themeColor,isDarkMode } = useSelector(selectTheme);
+
+    console.log(themeColor)
     return (
         <div className="grid lg:grid-cols-3 gap-4 mt-4">
-            <div className="bg-white flex flex-col justify-between shadow-sm lg:col-span-2 rounded-md p-6">
+            <div className="bg-white dark:bg-dark dark:text-white flex flex-col justify-between shadow-sm lg:col-span-2 rounded-md p-6">
                 <div className="flex flex-col gap-4 md:gap-0 md:flex-row justify-between">
                     <div>
                         <h1 className="text-lg font-semibold">Revenue Updates</h1>
@@ -75,7 +80,7 @@ const Revenue = () => {
                             </div>
                         ))}
 
-                        <button className="bg-[#687EFF] mb-4 w-full text-white p-2 rounded-lg flex justify-center text-sm">
+                        <button className={`${isDarkMode ? "bg-dark border" :themeColor} mb-4 w-full text-white p-2 rounded-lg flex justify-center text-sm`}>
                             View Full Report
                         </button>
                     </div>
@@ -86,7 +91,7 @@ const Revenue = () => {
                 </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-1 gap-4">
-                <div className="bg-white gap-4 h-full lg:h-[250px]  rounded-md shadow-sm grid p-8 lg:grid-cols-2">
+                <div className="bg-white dark:bg-dark dark:text-white gap-4 h-full lg:h-[250px]  rounded-md shadow-sm grid p-8 lg:grid-cols-2">
                     <div className="w-full flex flex-col justify-between h-full">
                         <p className="text-lg font-semibold ">Yearly Breakup</p>
                         <div>
@@ -116,10 +121,10 @@ const Revenue = () => {
                         <BreakupChart />
                     </div>
                 </div>
-                <div className="bg-white rounded-md shadow-sm grid p-8">
+                <div className="bg-white dark:bg-dark dark:text-white rounded-md shadow-sm grid p-8">
                     <div className="flex justify-between items-center">
                         <p className="text-lg font-semibold">Monthly Earnings</p>
-                        <div className="w-[40px] h-[40px] flex justify-center items-center rounded-full bg-[#687EFF]">
+                        <div className={`w-[40px] h-[40px] flex justify-center items-center rounded-full ${isDarkMode ? "bg-dark border" : themeColor}`}>
                             <FaDollarSign color="#fff" />
                         </div>
                     </div>

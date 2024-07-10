@@ -6,12 +6,12 @@ const CustomInputField = ({ label, name, rules, type, options }) => {
     const getInput = (type) => {
         switch (type) {
             case 'text':
-                return <Input className='py-2' />;
+                return <Input className='py-2 dark:bg-dark dark:text-white ' />;
             case 'date':
                 return <DatePicker className="w-full py-2" />;
             case 'select':
                 return (
-                    <Select allowClear>
+                    <Select allowClear className='dark:bg-dark dark:text-white'>
                         {options.map((option) => (
                             <Option key={option.value} value={option.value} label={option.label}>
                                 {option.label}
@@ -35,7 +35,7 @@ const CustomInputField = ({ label, name, rules, type, options }) => {
                 );
 
             default:
-                return <Input className='py-2' />;
+                return <Input className='py-2 dark:bg-dark dark:text-white' />;
         }
     };
 

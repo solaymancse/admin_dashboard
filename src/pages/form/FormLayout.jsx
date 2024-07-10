@@ -15,12 +15,12 @@ const FormLayout = () => {
   };
 
   return (
-    <div className="container mx-auto md:p-4 ">
+    <div className="container mx-auto md:p-4 dark:bg-dark dark:text-white ">
       <Card title="Basic Header Form" bordered={false}>
         <Card
           type="inner"
           title={<span><InfoCircleOutlined /> Person Info</span>}
-          className="mb-4 "
+          className="mb-4 dark:bg-dark dark:text-white"
         >
           <Form
             form={form}
@@ -30,6 +30,7 @@ const FormLayout = () => {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
+
           >
             <Row gutter={16}>
               <Col xs={24} sm={12}>
@@ -129,7 +130,7 @@ const FormLayout = () => {
               </Col>
             </Row>
             <Form.Item>
-              <Button className='bg-[#6B66F6] h-[40px] text-white px-8' htmlType="submit">
+              <Button className='bg-[#6B66F6] dark:border dark:bg-dark dark:text-white  h-[40px] text-white px-8' htmlType="submit">
                 Submit
               </Button>
             </Form.Item>

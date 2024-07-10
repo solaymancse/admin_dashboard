@@ -38,7 +38,7 @@ const Setting = () => {
     ];
 
     return (
-        <div className="bg-white py-8 px-6">
+        <div className="bg-white dark:bg-dark dark:text-white py-8 px-6">
 
             <h1 className="text-lg mb-4 font-semibold">Settings</h1>
             <Tabs defaultActiveKey="1" items={items} onChange={onChange} />

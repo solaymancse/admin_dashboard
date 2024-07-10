@@ -4,14 +4,18 @@ import { Link, useLocation } from "react-router-dom";
 import { bool, func } from "prop-types";
 import { Collapse } from "antd";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectTheme } from "../../features/theme/themeSlice";
 const { Panel } = Collapse;
 
 const Sidebar = ({ isClicked, onClose }) => {
   const [handleIsActiveIndex, setHandleIsActiveIndex] = useState(null);
   const location = useLocation();
+  const { themeColor,isDarkMode } = useSelector(selectTheme);
+
 
   const locationHandler = (path) => {
-    return location.pathname === path ? "active" : "";
+    return location.pathname === path ? `${isDarkMode ? "border bg-dark" : themeColor} text-[#F3F6FD]` : "";
   };
 
   const onChange = (key) => {
@@ -37,7 +41,7 @@ const Sidebar = ({ isClicked, onClose }) => {
                 expandIconPosition="right"
                 expandIcon={!isClicked ? undefined : () => null}
                 onChange={onChange}
-                className={`${index.toString() === handleIsActiveIndex ? 'sidebar2' : 'bg-white'} ${isClicked ? "sidebar3" : "pl-0"}`}
+                className={`${index.toString() === handleIsActiveIndex ? 'sidebar2' : ` ${isDarkMode ? "bg-dark text-[#fff]" : `${isDarkMode ? "bg-dark" : "bg-white"}`} `} ${isClicked ? "sidebar3" : "pl-0"}`}
               >
                 <Panel
                   header={
@@ -53,7 +57,7 @@ const Sidebar = ({ isClicked, onClose }) => {
                       onClick={onClose}
                       key={subIndex}
                       to={subItem?.path}
-                      className={`flex mb-4 justify-start text-start items-center rounded-lg ${locationHandler(subItem?.path)} hover:bg-blue-100`}
+                      className={`flex mb-4 justify-start text-start items-center rounded-lg ${locationHandler(subItem?.path)} hover:bg-blue-100 dark:hover:bg-dark dark:hover:border `}
                     >
                       {subItem?.icon}
                       <span className="ml-2 text-sm ">{subItem?.title}</span>
@@ -65,7 +69,7 @@ const Sidebar = ({ isClicked, onClose }) => {
               <Link
                 onClick={onClose}
                 to={item?.path}
-                className={`flex justify-start text-start items-center ml-2  rounded-lg ${locationHandler(item?.path)} hover:bg-blue-100`}
+                className={`flex justify-start text-start items-center ml-2  rounded-lg ${locationHandler(item?.path)} hover:bg-blue-100 dark:hover:bg-dark dark:hover:border`}
               >
                 <div className="w-[50px] h-[45px] rounded-full flex items-center justify-center">
                   {item?.icon}

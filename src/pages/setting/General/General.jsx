@@ -55,7 +55,7 @@ const General = () => {
             </div>
 
             <div>
-                <button type="submit" className="bg-[#6B66F6] text-white px-10 py-2 rounded-md">Save</button>
+                <button type="submit" className="bg-[#6B66F6] dark:bg-dark dark:text-white dark:border text-white px-10 py-2 rounded-md">Save</button>
             </div>
         </form>
     )
